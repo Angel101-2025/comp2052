@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mi Aplicación Flask{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+        }
+
+        nav a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 30px;
+        }
+
+        .flash {
+            padding: 10px;
+            background-color: #ffdddd;
+            border: 1px solid #dd4444;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 10px;
+            font-size: 0.9em;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mi Aplicación Flask</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Inicio</a>
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Iniciar sesión</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flash">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        © {{ current_user.username if current_user.is_authenticated else 'Invitado' }} - Mi Proyecto Flask
+    </footer>
+
+</body>
+</html>

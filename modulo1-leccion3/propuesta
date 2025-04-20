@@ -1,0 +1,26 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Juan Pérez",
+      "correo": "juan@example.com",
+      "productos_comprados": [101, 102]
+    }
+  ],
+  "productos": [
+    {
+      "id": 101,
+      "nombre": "Laptop HP",
+      "descripcion": "Laptop HP 14'' con 8GB RAM",
+      "precio": 750.0,
+      "stock": 12
+    },
+    {
+      "id": 102,
+      "nombre": "Mouse inalámbrico",
+      "descripcion": "Mouse Bluetooth Logitech",
+      "precio": 25.5,
+      "stock": 50
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block title %}My Library{% endblock %}
+{% block content %}
+<div class="row mb-3">
+  <div class="col">
+    <h3>My Books</h3>
+  </div>
+  <div class="col text-end">
+    <a class="btn btn-primary" href="{{ url_for('main.libros') }}">
+      <i class="bi bi-plus"></i> Add Book
+    </a>
+  </div>
+</div>
+<table class="table table-hover">
+  <thead class="table-light">
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Genre</th>
+      <th>Year</th>
+      <th>Tags</th>
+      <th class="text-center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for libro in libros %}
+    <tr>
+      <td>{{ libro.titulo }}</td>
+      <td>{{ libro.autor }}</td>
+      <td>{{ libro.genero }}</td>
+      <td>{{ libro.anio_publicacion }}</td>
+      <td>{{ libro.etiquetas }}</td>
+      <td class="text-center">
+        <a class="btn btn-sm btn-warning" href="{{ url_for('main.editar_libro', id=libro.id) }}"><i class="bi bi-pencil"></i></a>
+        <form method="POST" action="{{ url_for('main.eliminar_libro', id=libro.id) }}" style="display:inline;" onsubmit="return confirm('Are you sure?');">
+          <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

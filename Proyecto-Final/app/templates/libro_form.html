@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}{{ editar and "Edit Book" or "New Book" }}{% endblock %}
+{% block content %}
+<h2 class="mb-4">{{ editar and "Edit Book" or "New Book" }}</h2>
+<form method="POST" novalidate>
+  {{ form.hidden_tag() }}
+  <div class="mb-3">{{ form.titulo.label(class="form-label") }} {{ form.titulo(class="form-control") }}</div>
+  <div class="mb-3">{{ form.autor.label(class="form-label") }} {{ form.autor(class="form-control") }}</div>
+  <div class="mb-3">{{ form.genero.label(class="form-label") }} {{ form.genero(class="form-control") }}</div>
+  <div class="mb-3">{{ form.anio_publicacion.label(class="form-label") }} {{ form.anio_publicacion(class="form-control") }}</div>
+  <div class="mb-3">{{ form.url.label(class="form-label") }} {{ form.url(class="form-control") }}</div>
+  <div class="mb-3">{{ form.notas.label(class="form-label") }} {{ form.notas(class="form-control") }}</div>
+  <div class="mb-3">{{ form.etiquetas.label(class="form-label") }} {{ form.etiquetas(class="form-control") }}</div>
+  <div class="mb-3">{{ form.submit(class="btn btn-primary") }}</div>
+</form>
+{% endblock %}

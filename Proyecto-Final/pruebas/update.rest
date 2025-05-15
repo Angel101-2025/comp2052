@@ -1,9 +1,13 @@
-### Editar un curso (POST)
-
-# Simular POST con nuevos datos del curso
-
-PUT http://localhost:5000/cursos/4 Content-Type: application/json
+### Actualizar un libro
+PUT http://localhost:5000/api-test/libros/1
+Content-Type: application/json
 
 {
-"titulo": "Curso actualizado", "descripcion": "Nueva descripción actualizada"
+  "titulo": "Clean Code - Actualizado",
+  "autor": "Robert C. Martin",
+  "genero": "Desarrollo de Software",
+  "anio_publicacion": 2009,
+  "url": "https://ejemplo.com/cleancode-nuevo",
+  "notas": "Versión revisada del libro",
+  "etiquetas": "software, calidad, clean code"
 }

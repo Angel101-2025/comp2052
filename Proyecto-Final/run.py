@@ -1,9 +1,11 @@
 
 from app import create_app
 
+from app.test_routes import main
+
 # Crea la instancia de la aplicación Flask utilizando la factoría
 app = create_app()
-
+app.register_blueprint(main)
 # Punto de entrada de la aplicación
 if __name__ == '__main__':
     # Ejecuta el servidor Flask en modo desarrollo

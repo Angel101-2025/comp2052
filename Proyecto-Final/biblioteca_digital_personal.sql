@@ -30,13 +30,7 @@ CREATE TABLE libro_personal (
     FOREIGN KEY (usuario_id) REFERENCES users(id)  
 );
 
-CREATE TABLE curso (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    titulo VARCHAR(100) NOT NULL,
-    descripcion TEXT NOT NULL,
-    profesor_id INT NOT NULL,
-    FOREIGN KEY (profesor_id) REFERENCES users(id)
-);
+
 
 
 INSERT INTO roles (name) VALUES ('Admin'), ('Moderador'), ('Lector'); 
